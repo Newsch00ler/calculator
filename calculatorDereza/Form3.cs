@@ -30,12 +30,12 @@ namespace calculatorDereza
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            textAnsNumerator.Text = Logic3.MathNum(numerator1, denominator1).ToString();
-            textAnsDenominator.Text = Logic3.MathDen(numerator1, denominator1).ToString();
+            textAnsNumerator.Text = Logic3.GetNum(numerator1, denominator1).ToString();
+            textAnsDenominator.Text = Logic3.GetDen(numerator1, denominator1).ToString();
         }
         public class Logic3
         {
-            public static string MathNum(int numerator1, int denominator1)
+            public static string GetNum(int numerator1, int denominator1)
             {
                 int maxdel;
                 int numerator2 = numerator1;
@@ -60,7 +60,7 @@ namespace calculatorDereza
                 }
                 return result1;
             }
-            public static string MathDen(int numerator1, int denominator1)
+            public static string GetDen(int numerator1, int denominator1)
             {
                 int maxdel;
                 int denominator2 = denominator1;
