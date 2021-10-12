@@ -47,7 +47,7 @@ namespace calculatorDereza
                 string result = "";
                 if (numerator1 < denominator1 && numerator2 < denominator2)
                 {
-                    if(sign == "+")
+                    if (sign == "+")
                     {
                         denominator = denominator1 * denominator2;
                         numerator = numerator1 * denominator2 + numerator2 * denominator1;
