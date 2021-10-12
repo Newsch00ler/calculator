@@ -26,7 +26,16 @@ namespace calculatorDereza
         {
             public static string Compare(int numerator1, int denominator1, int numerator2, int denominator2)
             {
-
+                string result = "";
+                if (numerator1 < denominator1 && numerator2 < denominator2)
+                {
+                   
+                }
+                else
+                {
+                    result = "Ошибка";
+                }
+                return result;
             }
         }
     }

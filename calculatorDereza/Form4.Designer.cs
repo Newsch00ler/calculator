@@ -41,7 +41,7 @@ namespace calculatorDereza
             // textNum1
             // 
             this.textNum1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textNum1.Location = new System.Drawing.Point(100, 39);
+            this.textNum1.Location = new System.Drawing.Point(85, 39);
             this.textNum1.Name = "textNum1";
             this.textNum1.Size = new System.Drawing.Size(45, 29);
             this.textNum1.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace calculatorDereza
             // textDen1
             // 
             this.textDen1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textDen1.Location = new System.Drawing.Point(100, 69);
+            this.textDen1.Location = new System.Drawing.Point(85, 69);
             this.textDen1.Name = "textDen1";
             this.textDen1.Size = new System.Drawing.Size(45, 29);
             this.textDen1.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace calculatorDereza
             // textNum2
             // 
             this.textNum2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textNum2.Location = new System.Drawing.Point(224, 39);
+            this.textNum2.Location = new System.Drawing.Point(236, 39);
             this.textNum2.Name = "textNum2";
             this.textNum2.Size = new System.Drawing.Size(45, 29);
             this.textNum2.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace calculatorDereza
             // textDen2
             // 
             this.textDen2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textDen2.Location = new System.Drawing.Point(224, 69);
+            this.textDen2.Location = new System.Drawing.Point(236, 69);
             this.textDen2.Name = "textDen2";
             this.textDen2.Size = new System.Drawing.Size(45, 29);
             this.textDen2.TabIndex = 3;
@@ -77,10 +77,10 @@ namespace calculatorDereza
             // textSign
             // 
             this.textSign.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textSign.Location = new System.Drawing.Point(165, 53);
+            this.textSign.Location = new System.Drawing.Point(150, 53);
             this.textSign.Name = "textSign";
             this.textSign.ReadOnly = true;
-            this.textSign.Size = new System.Drawing.Size(40, 29);
+            this.textSign.Size = new System.Drawing.Size(66, 29);
             this.textSign.TabIndex = 4;
             this.textSign.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -95,9 +95,9 @@ namespace calculatorDereza
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(100, 118);
+            this.button1.Location = new System.Drawing.Point(85, 120);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 23);
+            this.button1.Size = new System.Drawing.Size(196, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Сравнить";
             this.button1.UseVisualStyleBackColor = true;
