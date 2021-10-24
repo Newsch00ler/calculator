@@ -125,7 +125,6 @@ namespace calculatorDereza
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textDen1;
         private System.Windows.Forms.TextBox textNum2;
         private System.Windows.Forms.TextBox textDen2;

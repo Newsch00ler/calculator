@@ -19,66 +19,22 @@ namespace calculatorDereza
         
         private void button1_Click(object sender, EventArgs e)
         {
-            int numerator1, denominator1, numerator2, denominator2;
-            string sign;
+            Fraction num1 = new Fraction();
+            Fraction num2 = new Fraction();
+            string sign = comboCheck.SelectedItem.ToString();
             try
             {
-                numerator1 = int.Parse(this.textNumerator1.Text);
-                denominator1 = int.Parse(this.textDenominator1.Text);
-                numerator2 = int.Parse(this.textNumerator2.Text);
-                denominator2 = int.Parse(this.textDenominator2.Text);
-                sign = comboCheck.SelectedItem.ToString();
+                num1.numerator = int.Parse(this.textNumerator1.Text);
+                num1.denominator = int.Parse(this.textDenominator1.Text);
+                num2.numerator = int.Parse(this.textNumerator2.Text);
+                num2.denominator = int.Parse(this.textDenominator2.Text);
             }
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            textAns.Text = Logic2.Math(numerator1, denominator1, numerator2, denominator2, sign).ToString();
-        }
-
-        public class Logic2
-        {
-            public static string Math(int numerator1, int denominator1, int numerator2, int denominator2, string sign)
-            {
-                float sum = 0;
-                float numerator = 0;
-                float denominator = 0;
-                string result = "";
-                if (numerator1 < denominator1 && numerator2 < denominator2)
-                {
-                    if (sign == "+")
-                    {
-                        denominator = denominator1 * denominator2;
-                        numerator = numerator1 * denominator2 + numerator2 * denominator1;
-                        sum = numerator / denominator;
-                    }
-                    if (sign == "-")
-                    {
-                        denominator = denominator1 * denominator2;
-                        numerator = numerator1 * denominator2 - numerator2 * denominator1;
-                        sum = numerator / denominator;
-                    }
-                    if (sign == "*")
-                    {
-                        numerator = numerator1 *numerator2;
-                        denominator = denominator1 * denominator2;
-                        sum = numerator / denominator;
-                    }
-                    if (sign == "/")
-                    {
-                        numerator = numerator1 * denominator2;
-                        denominator = denominator1 * numerator2;
-                        sum = numerator / denominator;
-                    }
-                    result = String.Format("{0:f3}", sum);
-                }
-                else
-                {
-                    result = "Ошибка";
-                }
-                return result;
-            }
+            textAns.Text = num1.GetSum(num1, num2, sign);
         }
     }
 }

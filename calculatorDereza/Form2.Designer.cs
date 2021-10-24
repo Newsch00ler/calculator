@@ -145,7 +145,6 @@ namespace calculatorDereza
 
         private System.Windows.Forms.TextBox textNumerator1;
         private System.Windows.Forms.TextBox textDenominator1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textDenominator2;
         private System.Windows.Forms.ComboBox comboCheck;
         private System.Windows.Forms.Button button1;
