@@ -31,11 +31,14 @@ namespace calculatorDereza
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSign.Text = "";
                 return;
             }
             if (num1.numerator >= num1.denominator || num2.numerator >= num2.denominator)
             {
                 MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSign.Text = "";
+                return;
             }
             else
             {
