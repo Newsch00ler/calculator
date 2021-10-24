@@ -42,7 +42,7 @@ namespace calculatorDereza
             }
             else
             {
-                textSign.Text = num1.GetCompare(num1, num2).ToString();
+                textSign.Text = num1.GetCompare(num1, num2);
             }
         }
     }

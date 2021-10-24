@@ -18,33 +18,33 @@ namespace calculatorDereza
         }
         public string GetSum(Fraction num1, Fraction num2,  string sign)
         {
-            float sum = 0;
-            Fraction num3 = new Fraction();
+            string result = "";
+            float num;
+            float den;
             if (sign == "+")
             {
-                num3.denominator = num1.denominator * num2.denominator;
-                num3.numerator = num1.numerator * num2.denominator + num2.numerator * num1.denominator;
-                sum = num3.numerator / num3.denominator;
+                den = num1.denominator * num2.denominator;
+                num = num1.numerator * num2.denominator + num2.numerator * num1.denominator;
+                result = String.Format("{0:f3}", num / den);
             }
             if (sign == "-")
             {
-                num3.denominator = num1.denominator * num2.denominator;
-                num3.numerator = num1.numerator * num2.denominator - num2.numerator * num1.denominator;
-                sum = num3.numerator / num3.denominator;
+                den = num1.denominator * num2.denominator;
+                num = num1.numerator * num2.denominator - num2.numerator * num1.denominator;
+                result = String.Format("{0:f3}", num / den);
             }
             if (sign == "*")
             {
-                num3.numerator = num1.numerator * num2.numerator;
-                num3.denominator = num1.denominator * num2.denominator;
-                sum = num3.numerator / num3.denominator;
+                num = num1.numerator * num2.numerator;
+                den = num1.denominator * num2.denominator;
+                result = String.Format("{0:f3}", num / den);
             }
             if (sign == "/")
             {
-                num3.numerator = num1.numerator * num2.denominator;
-                num3.denominator = num1.denominator * num2.numerator;
-                sum = num3.numerator / num3.denominator;
+                num = num1.numerator * num2.denominator;
+                den = num1.denominator * num2.numerator;
+                result = String.Format("{0:f3}", num / den);
             }
-            string result = String.Format("{0:f3}", sum);
 
             return result;
         }
@@ -81,6 +81,7 @@ namespace calculatorDereza
             {
                 resultSign = "=";
             }
+
             return resultSign;
         }
     }
