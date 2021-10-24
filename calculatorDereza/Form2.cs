@@ -32,9 +32,19 @@ namespace calculatorDereza
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAns.Text = "";
                 return;
             }
-            textAns.Text = num1.GetSum(num1, num2, sign);
+            if (num1.numerator >= num1.denominator || num2.numerator >= num2.denominator)
+            {
+                MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAns.Text = "";
+                return;
+            }
+            else
+            {
+                textAns.Text = num1.GetSum(num1, num2, sign);
+            }
         }
     }
 }
