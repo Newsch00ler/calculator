@@ -28,11 +28,16 @@ namespace calculatorDereza
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAnsNumerator.Text = "";
+                textAnsDenominator.Text = "";
                 return;
             }
             if (num1.numerator >= num1.denominator)
             {
                 MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAnsNumerator.Text = "";
+                textAnsDenominator.Text = "";
+                return;
             }
             else
             {
@@ -40,6 +45,5 @@ namespace calculatorDereza
                 textAnsDenominator.Text = num1.GetReduction(num1).denominator.ToString();
             }
         }
-        
     }
 }
