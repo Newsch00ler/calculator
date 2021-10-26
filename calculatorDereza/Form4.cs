@@ -15,6 +15,51 @@ namespace calculatorDereza
         public Form4()
         {
             InitializeComponent();
+            textNum1.Text = Properties.Settings.Default.numerator.ToString();
+            textDen1.Text = Properties.Settings.Default.denominator.ToString();
+            textNum2.Text = Properties.Settings.Default.numerator.ToString();
+            textDen2.Text = Properties.Settings.Default.denominator.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Fraction num1 = new Fraction();
+            Fraction num2 = new Fraction();
+            try
+            {
+                num1.numerator = int.Parse(this.textNum1.Text);
+                num1.denominator = int.Parse(this.textDen1.Text);
+                num2.numerator = int.Parse(this.textNum2.Text);
+                num2.denominator = int.Parse(this.textDen2.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSign.Text = "";
+                return;
+            }
+            if (num1.numerator >= num1.denominator || num2.numerator >= num2.denominator)
+            {
+                MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSign.Text = "";
+                return;
+            }
+            else
+            {
+                Properties.Settings.Default.numerator = (int)num1.numerator;
+                Properties.Settings.Default.denominator = (int)num1.denominator;
+                Properties.Settings.Default.numerator = (int)num2.numerator;
+                Properties.Settings.Default.denominator = (int)num2.denominator;
+                Properties.Settings.Default.Save();
+                textSign.Text = num1.GetCompare(num1, num2);
+            }
+        }
+    }
+    /*public partial class Form4 : Form
+    {
+        public Form4()
+        {
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,5 +90,5 @@ namespace calculatorDereza
                 textSign.Text = num1.GetCompare(num1, num2);
             }
         }
-    }
+    }*/
 }
