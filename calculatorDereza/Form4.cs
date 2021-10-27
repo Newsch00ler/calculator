@@ -38,7 +38,7 @@ namespace calculatorDereza
                 textSign.Text = "";
                 return;
             }
-            if (num1.numerator >= num1.denominator || num2.numerator >= num2.denominator)
+            if (Math.Abs(num1.numerator) >= Math.Abs(num1.denominator) || Math.Abs(num2.numerator) >= Math.Abs(num2.denominator))
             {
                 MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textSign.Text = "";

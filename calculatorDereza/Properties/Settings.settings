@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="numerator" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="denominator" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="sign" Type="System.String" Scope="User">
-      <Value Profile="(Default)">+</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
