@@ -16,39 +16,48 @@ namespace calculatorDereza
             this.numerator = 0;
             this.denominator = 0;
         }
-        public string GetSum(Fraction num1, Fraction num2,  string sign)
+        public static Fraction operator +(Fraction num1, Fraction num2)
         {
-            string result = "";
-            float num;
-            float den;
-            if (sign == "+")
-            {
-                den = num1.denominator * num2.denominator;
-                num = num1.numerator * num2.denominator + num2.numerator * num1.denominator;
-                result = String.Format("{0:f3}", num / den);
-            }
-            if (sign == "-")
-            {
-                den = num1.denominator * num2.denominator;
-                num = num1.numerator * num2.denominator - num2.numerator * num1.denominator;
-                result = String.Format("{0:f3}", num / den);
-            }
-            if (sign == "*")
-            {
-                num = num1.numerator * num2.numerator;
-                den = num1.denominator * num2.denominator;
-                result = String.Format("{0:f3}", num / den);
-            }
-            if (sign == "/")
-            {
-                num = num1.numerator * num2.denominator;
-                den = num1.denominator * num2.numerator;
-                result = String.Format("{0:f3}", num / den);
-            }
+            Fraction num3 = new Fraction();
 
-            return result;
+            num3.denominator = num1.denominator * num2.denominator;
+            num3.numerator = num1.numerator * num2.denominator + num2.numerator * num1.denominator;
+            return num3;
         }
+        public static Fraction operator -(Fraction num1, Fraction num2)
+        {
+            Fraction num3 = new Fraction();
 
+            num3.denominator = num1.denominator * num2.denominator;
+            num3.numerator = num1.numerator * num2.denominator - num2.numerator * num1.denominator;
+            if(num3.numerator == 0)
+            {
+                num3.denominator = 0;
+            }
+            return num3;
+        }
+        public static Fraction operator *(Fraction num1, Fraction num2)
+        {
+            Fraction num3 = new Fraction();
+
+            num3.denominator = num1.denominator * num2.denominator;
+            num3.numerator = num1.numerator * num2.numerator;
+            return num3;
+        }
+        public static Fraction operator /(Fraction num1, Fraction num2)
+        {
+            Fraction num3 = new Fraction();
+
+            num3.denominator = num1.denominator * num2.numerator;
+            num3.numerator = num1.numerator * num2.denominator;
+            if(num3.numerator == num3.denominator)
+            {
+                num3.denominator = 1;
+                num3.numerator = 1;
+            }
+            return num3;
+        }
+ 
         public Fraction GetReduction(Fraction num1)
         {
             float num = num1.numerator;
@@ -60,8 +69,8 @@ namespace calculatorDereza
                 num = t;
             }
             int maxdel = (int)num;
-            num1.numerator = num1.numerator / maxdel;
-            num1.denominator = num1.denominator / maxdel;
+            num1.numerator = numerator / maxdel;
+            num1.denominator = denominator / maxdel;
             
             return num1;
         }

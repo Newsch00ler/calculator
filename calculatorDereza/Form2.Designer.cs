@@ -33,10 +33,11 @@ namespace calculatorDereza
             this.textDenominator1 = new System.Windows.Forms.TextBox();
             this.textNumerator2 = new System.Windows.Forms.TextBox();
             this.textDenominator2 = new System.Windows.Forms.TextBox();
-            this.comboCheck = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textAns = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textNumerator1
@@ -75,21 +76,6 @@ namespace calculatorDereza
             this.textDenominator2.TabIndex = 3;
             this.textDenominator2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboCheck
-            // 
-            this.comboCheck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCheck.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboCheck.FormattingEnabled = true;
-            this.comboCheck.Items.AddRange(new object[] {
-            "+",
-            "-",
-            "*",
-            "/"});
-            this.comboCheck.Location = new System.Drawing.Point(104, 57);
-            this.comboCheck.Name = "comboCheck";
-            this.comboCheck.Size = new System.Drawing.Size(40, 29);
-            this.comboCheck.TabIndex = 4;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -104,7 +90,7 @@ namespace calculatorDereza
             // textAns
             // 
             this.textAns.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textAns.Location = new System.Drawing.Point(267, 56);
+            this.textAns.Location = new System.Drawing.Point(269, 42);
             this.textAns.Name = "textAns";
             this.textAns.ReadOnly = true;
             this.textAns.Size = new System.Drawing.Size(66, 29);
@@ -120,15 +106,39 @@ namespace calculatorDereza
             this.label1.TabIndex = 7;
             this.label1.Text = "Вводите только правильные дроби, иначе будет \"Ошибка\"";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(269, 72);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(66, 29);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
+            this.comboBox1.Location = new System.Drawing.Point(114, 63);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(37, 23);
+            this.comboBox1.TabIndex = 9;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 114);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textAns);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboCheck);
             this.Controls.Add(this.textDenominator2);
             this.Controls.Add(this.textNumerator2);
             this.Controls.Add(this.textDenominator1);
@@ -146,10 +156,11 @@ namespace calculatorDereza
         private System.Windows.Forms.TextBox textNumerator1;
         private System.Windows.Forms.TextBox textDenominator1;
         private System.Windows.Forms.TextBox textDenominator2;
-        private System.Windows.Forms.ComboBox comboCheck;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textAns;
         private System.Windows.Forms.TextBox textNumerator2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
