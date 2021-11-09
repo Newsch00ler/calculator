@@ -15,48 +15,43 @@ namespace calculatorDereza
         public Form4()
         {
             InitializeComponent();
+            /*textNum1.Text = Properties.Settings.Default.numerator.ToString();
+            textDen1.Text = Properties.Settings.Default.denominator.ToString();
+            textNum2.Text = Properties.Settings.Default.numerator.ToString();
+            textDen2.Text = Properties.Settings.Default.denominator.ToString();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int numerator1, denominator1, numerator2, denominator2;
+            Fraction num1 = new Fraction();
+            Fraction num2 = new Fraction();
             try
             {
-                numerator1 = int.Parse(this.textNum1.Text);
-                denominator1 = int.Parse(this.textDen1.Text);
-                numerator2 = int.Parse(this.textNum2.Text);
-                denominator2 = int.Parse(this.textDen2.Text);
+                num1.numerator = int.Parse(this.textNum1.Text);
+                num1.denominator = int.Parse(this.textDen1.Text);
+                num2.numerator = int.Parse(this.textNum2.Text);
+                num2.denominator = int.Parse(this.textDen2.Text);
             }
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSign.Text = "";
                 return;
             }
-            textSign.Text = Logic4.Compare(numerator1, denominator1, numerator2, denominator2).ToString();
-        }
-
-        public class Logic4
-        {
-            public static string Compare(int numerator1, int denominator1, int numerator2, int denominator2)
+            if (Math.Abs(num1.numerator) >= Math.Abs(num1.denominator) || Math.Abs(num2.numerator) >= Math.Abs(num2.denominator))
             {
-                string result = "";
-                if (numerator1 * denominator2 < numerator2 * denominator1)
-                {
-                    result = "<";
-                }
-                if (numerator1 * denominator2 > numerator2 * denominator1)
-                {
-                    result = ">";
-                }
-                if (numerator1 * denominator2 == numerator2 * denominator1)
-                {
-                    result = "=";
-                }
-                if (numerator1 >= denominator1 || numerator2 >= denominator2)
-                {
-                    result = "Ошибка";
-                }
-                return result;
+                MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSign.Text = "";
+                return;
+            }
+            else
+            {
+                /*Properties.Settings.Default.numerator = (int)num1.numerator;
+                Properties.Settings.Default.denominator = (int)num1.denominator;
+                Properties.Settings.Default.numerator = (int)num2.numerator;
+                Properties.Settings.Default.denominator = (int)num2.denominator;
+                Properties.Settings.Default.Save();*/
+                textSign.Text = num1.GetCompare(num1, num2);
             }
         }
     }

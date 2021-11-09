@@ -15,75 +15,39 @@ namespace calculatorDereza
         public Form3()
         {
             InitializeComponent();
+            /*textNumerator1.Text = Properties.Settings.Default.numerator.ToString();
+            textDenominator1.Text = Properties.Settings.Default.denominator.ToString();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int numerator1, denominator1;
+            Fraction num1 = new Fraction();
             try
             {
-                numerator1 = int.Parse(this.textNumerator1.Text);
-                denominator1 = int.Parse(this.textDenominator1.Text);
+                num1.numerator = int.Parse(this.textNumerator1.Text);
+                num1.denominator = int.Parse(this.textDenominator1.Text);
             }
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAnsNumerator.Text = "";
+                textAnsDenominator.Text = "";
                 return;
             }
-            textAnsNumerator.Text = Logic3.GetNum(numerator1, denominator1).ToString();
-            textAnsDenominator.Text = Logic3.GetDen(numerator1, denominator1).ToString();
-        }
-        public class Logic3
-        {
-            public static string GetNum(int numerator1, int denominator1)
+            if (Math.Abs(num1.numerator) >= Math.Abs(num1.denominator))
             {
-                int maxdel;
-                int numerator2 = numerator1;
-                int numerator;
-                int denominator2 = denominator1;
-                string result1;
-                if (numerator1 < denominator1 && numerator2 < denominator2)
-                {
-                    while (denominator1 != 0)
-                    {
-                        var t = denominator1;
-                        denominator1 = numerator1 % denominator1;
-                        numerator1 = t;
-                    }
-                    maxdel = numerator1;
-                    numerator = numerator2 / maxdel;
-                    result1 = numerator.ToString();
-                }
-                else
-                {
-                    result1 = "Ошибка";
-                }
-                return result1;
+                MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAnsNumerator.Text = "";
+                textAnsDenominator.Text = "";
+                return;
             }
-            public static string GetDen(int numerator1, int denominator1)
+            else
             {
-                int maxdel;
-                int denominator2 = denominator1;
-                int denominator;
-                int numerator2 = numerator1;
-                string result2;
-                if (numerator1 < denominator1 && numerator2 < denominator2)
-                {
-                    while (denominator1 != 0)
-                    {
-                        var t = denominator1;
-                        denominator1 = numerator1 % denominator1;
-                        numerator1 = t;
-                    }
-                    maxdel = numerator1;
-                    denominator = denominator2 / maxdel;
-                    result2 = denominator.ToString();
-                }
-                else
-                {
-                    result2 = "Ошибка";
-                }
-                return result2;
+                /*Properties.Settings.Default.numerator = (int)num1.numerator;
+                Properties.Settings.Default.denominator = (int)num1.denominator;
+                Properties.Settings.Default.Save();*/
+                textAnsNumerator.Text = num1.GetReduction(num1).numerator.ToString();
+                textAnsDenominator.Text = num1.GetReduction(num1).denominator.ToString();
             }
         }
     }

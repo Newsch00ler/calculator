@@ -15,69 +15,72 @@ namespace calculatorDereza
         public Form2()
         {
             InitializeComponent();
-        }        
-        
+            /*textNumerator1.Text = Properties.Settings.Default.numerator.ToString();
+            textDenominator1.Text = Properties.Settings.Default.denominator.ToString();
+            textNumerator2.Text = Properties.Settings.Default.numerator.ToString();
+            textDenominator2.Text = Properties.Settings.Default.denominator.ToString();*/
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            int numerator1, denominator1, numerator2, denominator2;
-            string sign;
+            Fraction num1 = new Fraction();
+            Fraction num2 = new Fraction();
+            int sign = comboBox1.SelectedIndex;
             try
             {
-                numerator1 = int.Parse(this.textNumerator1.Text);
-                denominator1 = int.Parse(this.textDenominator1.Text);
-                numerator2 = int.Parse(this.textNumerator2.Text);
-                denominator2 = int.Parse(this.textDenominator2.Text);
-                sign = comboCheck.SelectedItem.ToString();
+                num1.numerator = int.Parse(this.textNumerator1.Text);
+                num1.denominator = int.Parse(this.textDenominator1.Text);
+                num2.numerator = int.Parse(this.textNumerator2.Text);
+                num2.denominator = int.Parse(this.textDenominator2.Text);
             }
             catch (FormatException)
             {
                 MessageBox.Show("Некорректный ввод", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAns.Text = "";
                 return;
             }
-            textAns.Text = Logic2.Math(numerator1, denominator1, numerator2, denominator2, sign).ToString();
-        }
-
-        public class Logic2
-        {
-            public static string Math(int numerator1, int denominator1, int numerator2, int denominator2, string sign)
+            if (Math.Abs(num1.numerator) >= Math.Abs(num1.denominator) || Math.Abs(num2.numerator) >= Math.Abs(num2.denominator))
             {
-                float sum = 0;
-                float numerator = 0;
-                float denominator = 0;
-                string result = "";
-                if (numerator1 < denominator1 && numerator2 < denominator2)
+                MessageBox.Show("Неправильная дробь", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textAns.Text = "";
+                return;
+            }
+            else if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Неправильный знак", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                /*Properties.Settings.Default.numerator = (int)num1.numerator;
+                Properties.Settings.Default.denominator = (int)num1.denominator;
+                Properties.Settings.Default.numerator = (int)num2.numerator;
+                Properties.Settings.Default.denominator = (int)num2.denominator;
+                Properties.Settings.Default.Save();*/
+                if (sign == 0)
                 {
-                    if (sign == "+")
-                    {
-                        denominator = denominator1 * denominator2;
-                        numerator = numerator1 * denominator2 + numerator2 * denominator1;
-                        sum = numerator / denominator;
-                    }
-                    if (sign == "-")
-                    {
-                        denominator = denominator1 * denominator2;
-                        numerator = numerator1 * denominator2 - numerator2 * denominator1;
-                        sum = numerator / denominator;
-                    }
-                    if (sign == "*")
-                    {
-                        numerator = numerator1 *numerator2;
-                        denominator = denominator1 * denominator2;
-                        sum = numerator / denominator;
-                    }
-                    if (sign == "/")
-                    {
-                        numerator = numerator1 * denominator2;
-                        denominator = denominator1 * numerator2;
-                        sum = numerator / denominator;
-                    }
-                    result = String.Format("{0:f3}", sum);
+                    var num3 = num1 + num2;
+                    textAns.Text = $"{num3.numerator}";
+                    textBox1.Text = $"{num3.denominator}";
                 }
-                else
+                else if (sign == 1)
                 {
-                    result = "Ошибка";
+                    var num3 = num1 - num2;
+                    textAns.Text = $"{num3.numerator}";
+                    textBox1.Text = $"{num3.denominator}";
                 }
-                return result;
+                else if (sign == 2)
+                {
+                    var num3 = num1 * num2;
+                    textAns.Text = $"{num3.numerator}";
+                    textBox1.Text = $"{num3.denominator}";
+                }
+                else if (sign == 3)
+                {
+                    var num3 = num1 / num2;
+                    textAns.Text = $"{num3.numerator}";
+                    textBox1.Text = $"{num3.denominator}";
+                }
             }
         }
     }
