@@ -22,5 +22,29 @@ namespace calculatorDereza.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int numerator {
+            get {
+                return ((int)(this["numerator"]));
+            }
+            set {
+                this["numerator"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int denominator {
+            get {
+                return ((int)(this["denominator"]));
+            }
+            set {
+                this["denominator"] = value;
+            }
+        }
     }
 }

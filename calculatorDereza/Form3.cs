@@ -15,8 +15,8 @@ namespace calculatorDereza
         public Form3()
         {
             InitializeComponent();
-            /*textNumerator1.Text = Properties.Settings.Default.numerator.ToString();
-            textDenominator1.Text = Properties.Settings.Default.denominator.ToString();*/
+            textNumerator1.Text = Properties.Settings.Default.numerator.ToString();
+            textDenominator1.Text = Properties.Settings.Default.denominator.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,9 +43,9 @@ namespace calculatorDereza
             }
             else
             {
-                /*Properties.Settings.Default.numerator = (int)num1.numerator;
+                Properties.Settings.Default.numerator = (int)num1.numerator;
                 Properties.Settings.Default.denominator = (int)num1.denominator;
-                Properties.Settings.Default.Save();*/
+                Properties.Settings.Default.Save();
                 textAnsNumerator.Text = num1.GetReduction(num1).numerator.ToString();
                 textAnsDenominator.Text = num1.GetReduction(num1).denominator.ToString();
             }

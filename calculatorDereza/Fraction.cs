@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace calculatorDereza
 {
-    class Fraction
+    public class Fraction
     {
         public float numerator;
         public float denominator;

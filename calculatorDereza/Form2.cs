@@ -15,10 +15,10 @@ namespace calculatorDereza
         public Form2()
         {
             InitializeComponent();
-            /*textNumerator1.Text = Properties.Settings.Default.numerator.ToString();
+            textNumerator1.Text = Properties.Settings.Default.numerator.ToString();
             textDenominator1.Text = Properties.Settings.Default.denominator.ToString();
             textNumerator2.Text = Properties.Settings.Default.numerator.ToString();
-            textDenominator2.Text = Properties.Settings.Default.denominator.ToString();*/
+            textDenominator2.Text = Properties.Settings.Default.denominator.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,11 +52,11 @@ namespace calculatorDereza
             }
             else
             {
-                /*Properties.Settings.Default.numerator = (int)num1.numerator;
+                Properties.Settings.Default.numerator = (int)num1.numerator;
                 Properties.Settings.Default.denominator = (int)num1.denominator;
                 Properties.Settings.Default.numerator = (int)num2.numerator;
                 Properties.Settings.Default.denominator = (int)num2.denominator;
-                Properties.Settings.Default.Save();*/
+                Properties.Settings.Default.Save();
                 if (sign == 0)
                 {
                     var num3 = num1 + num2;
